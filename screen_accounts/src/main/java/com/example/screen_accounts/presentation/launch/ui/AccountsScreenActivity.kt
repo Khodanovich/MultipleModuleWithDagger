@@ -32,5 +32,7 @@ class AccountsScreenActivity : BaseActivity<AccountViewModel>() {
         super.onCreate(savedInstanceState)
 
         toDetailsButton.setOnClickListener { viewModel.onToDetailsButtonClicked() }
+
+        toProfileButton.setOnClickListener { viewModel.onToProfileInfoClicked() }
     }
 }

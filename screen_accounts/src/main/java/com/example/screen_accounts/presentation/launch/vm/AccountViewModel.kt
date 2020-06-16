@@ -5,6 +5,7 @@ import com.example.feature_accounts.domain.AllAccountsCase
 import com.example.feature_accounts.domain.ByIdAccountCase
 import com.example.feature_accounts.domain.DepositAccountsCase
 import com.example.feature_accounts.domain.LoanAccountsCase
+import com.example.navigation.directions.GlobalDirections
 import com.example.screen_accounts.navigation.AccountDetailsScreen
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
@@ -18,7 +19,8 @@ class AccountViewModel @Inject constructor(
     private val byIdAccountCase: ByIdAccountCase,
     private val depositAccountsCase: DepositAccountsCase,
     private val loanAccountsCase: LoanAccountsCase,
-    private val router: Router
+    private val router: Router,
+    private val globalDirections: GlobalDirections
 
 ) : BaseViewModel() {
 
@@ -35,5 +37,9 @@ class AccountViewModel @Inject constructor(
 
     fun onToDetailsButtonClicked() {
         router.navigateTo(AccountDetailsScreen(1))
+    }
+
+    fun onToProfileInfoClicked() {
+        router.navigateTo(globalDirections.toProfile())
     }
 }

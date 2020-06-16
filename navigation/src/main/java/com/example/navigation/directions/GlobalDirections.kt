@@ -9,4 +9,6 @@ interface GlobalDirections {
 
     fun toAccounts(): SupportAppScreen
 
+    fun toProfile(): SupportAppScreen
+
 }

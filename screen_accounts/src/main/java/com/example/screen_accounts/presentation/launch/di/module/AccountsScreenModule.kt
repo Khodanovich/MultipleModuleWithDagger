@@ -11,7 +11,7 @@ import dagger.multibindings.IntoMap
  * @author a.khodanovich
  */
 @Module
-internal abstract class AccountsPresentationModule {
+internal abstract class AccountsScreenModule {
 
     @Binds
     @IntoMap

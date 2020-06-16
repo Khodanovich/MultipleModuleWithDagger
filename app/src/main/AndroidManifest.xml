@@ -27,6 +27,12 @@
             android:name="com.example.screen_accounts.presentation.details.ui.AccountDetailsActivity"
             android:label="Account Details Screen"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.example.screen_profile.presentation.ui.ProfileActivity"
+            android:label="Account Details Screen"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>
