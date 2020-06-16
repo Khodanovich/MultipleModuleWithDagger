@@ -1,0 +1,12 @@
+
+dependencies {
+
+    implementation project(':core')
+    implementation project(':core_ui')
+    implementation project(':core_utils')
+
+    implementation project(':navigation')
+
+    implementation project(':screen_accounts')
+    implementation project(':screen_spalsh')
+}

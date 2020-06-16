@@ -1,0 +1,10 @@
+
+
+dependencies {
+
+    implementation project(':core')
+    implementation project(':core_utils')
+
+    api  'ru.terrakok.cicerone:cicerone:5.1.1'
+
+}
