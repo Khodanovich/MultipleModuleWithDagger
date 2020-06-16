@@ -1,7 +1,7 @@
 package com.example.screen_spalsh.presentation.vm
 
 import com.example.core_ui.presentation.ui.base.BaseViewModel
-import com.example.navigation.directions.Directions
+import com.example.navigation.directions.GlobalDirections
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
@@ -11,12 +11,12 @@ import javax.inject.Inject
 class SplashViewModel @Inject constructor(
 
     private val router: Router,
-    private val directions: Directions
+    private val globalDirections: GlobalDirections
 
 ) : BaseViewModel() {
 
     override fun onViewCreated() {
-        router.navigateTo(directions.toAccounts())
+        router.navigateTo(globalDirections.toAccounts())
     }
 
 }

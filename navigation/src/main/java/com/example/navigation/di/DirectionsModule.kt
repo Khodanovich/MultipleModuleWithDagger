@@ -1,6 +1,6 @@
 package com.example.navigation.di
 
-import com.example.navigation.directions.Directions
+import com.example.navigation.directions.GlobalDirections
 import dagger.Module
 import dagger.Provides
 
@@ -9,9 +9,9 @@ import dagger.Provides
  */
 
 @Module
-internal class DirectionsModule constructor(private val directions: Directions) {
+internal class DirectionsModule constructor(private val globalDirections: GlobalDirections) {
 
     @Provides
-    fun provideDirections() = directions
+    fun provideDirections() = globalDirections
 
 }

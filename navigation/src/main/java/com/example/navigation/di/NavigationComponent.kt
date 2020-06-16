@@ -1,7 +1,7 @@
 package com.example.navigation.di
 
 import com.example.core_utils.di.base.component.DIComponent
-import com.example.navigation.directions.Directions
+import com.example.navigation.directions.GlobalDirections
 import dagger.Component
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
@@ -18,7 +18,7 @@ import ru.terrakok.cicerone.Router
 )
 interface NavigationComponent : DIComponent {
 
-    val directions: Directions
+    val globalDirections: GlobalDirections
 
     val navigatorHolder: NavigatorHolder
 

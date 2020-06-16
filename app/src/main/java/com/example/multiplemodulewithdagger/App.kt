@@ -2,7 +2,7 @@ package com.example.multiplemodulewithdagger
 
 import android.app.Application
 import com.example.core_utils.di.app.AppComponentHolder
-import com.example.multiplemodulewithdagger.navigation.direction.DirectionsImpl
+import com.example.multiplemodulewithdagger.navigation.direction.GlobalDirectionsImpl
 import com.example.navigation.di.NavigationComponentHolder
 import com.example.navigation.di.NavigationConfig
 import ru.terrakok.cicerone.Cicerone
@@ -26,7 +26,7 @@ class App : Application() {
     private fun initNavigationComponent() {
         NavigationComponentHolder.create(
             NavigationConfig(
-                directions = DirectionsImpl(),
+                globalDirections = GlobalDirectionsImpl(),
                 cicerone = Cicerone.create()
             )
         )

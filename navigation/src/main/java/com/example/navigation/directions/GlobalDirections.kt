@@ -5,7 +5,7 @@ import ru.terrakok.cicerone.android.support.SupportAppScreen
 /**
  * @author a.khodanovich
  */
-interface Directions {
+interface GlobalDirections {
 
     fun toAccounts(): SupportAppScreen
 

@@ -1,12 +1,12 @@
 package com.example.multiplemodulewithdagger.navigation.direction
 
 import com.example.multiplemodulewithdagger.navigation.screen.ToAccountsScreen
-import com.example.navigation.directions.Directions
+import com.example.navigation.directions.GlobalDirections
 
 /**
  * @author a.khodanovich
  */
-internal class DirectionsImpl : Directions {
+internal class GlobalDirectionsImpl : GlobalDirections {
 
     override fun toAccounts() = ToAccountsScreen
 
