@@ -1,5 +1,6 @@
 package com.example.feature_accounts.di
 
+import com.example.core_data_base.di.DbComponentHolder
 import com.example.core_utils.di.base.holder.ComponentHolder
 
 /**
@@ -7,6 +8,9 @@ import com.example.core_utils.di.base.holder.ComponentHolder
  */
 object AccountComponentHolder : ComponentHolder<AccountComponent>() {
 
-    override fun build(): AccountComponent = DaggerAccountComponent.create()
+    override fun build(): AccountComponent = DaggerAccountComponentInternalImpl
+        .builder()
+        .dbComponent(DbComponentHolder.get())
+        .build()
 
 }

@@ -1,5 +1,6 @@
 package com.example.feature_accounts.di
 
+import com.example.core_data_base.di.DbComponent
 import com.example.core_utils.di.base.component.DIComponent
 import com.example.feature_accounts.di.module.AccountModule
 import com.example.feature_accounts.domain.AllAccountsCase
@@ -11,19 +12,23 @@ import dagger.Component
 /**
  * @author a.khodanovich
  */
-@Component(
-    modules = [
-        AccountModule::class
-    ]
-)
-interface AccountComponent : DIComponent {
+interface AccountComponent : DIComponent{
 
-    val allAccountsCase : AllAccountsCase
+    val allAccountsCase: AllAccountsCase
 
     val byIdAccountCase: ByIdAccountCase
 
     val depositAccountsCase: DepositAccountsCase
 
     val loanAccountsCase: LoanAccountsCase
-
 }
+
+@Component(
+    dependencies = [
+        DbComponent::class
+    ],
+    modules = [
+        AccountModule::class
+    ]
+)
+interface AccountComponentInternalImpl : AccountComponent

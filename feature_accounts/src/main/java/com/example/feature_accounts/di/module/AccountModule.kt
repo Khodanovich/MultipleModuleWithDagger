@@ -10,6 +10,8 @@ import com.example.feature_accounts.domain.LoanAccountsCaseImpl
 import com.example.feature_accounts.domain.repository.AccountRepository
 import dagger.Binds
 import dagger.Module
+import dagger.Reusable
+import javax.inject.Singleton
 
 /**
  * @author a.khodanovich
@@ -22,6 +24,7 @@ internal interface AccountModule {
     val toAccountDomainMapper: ToAccountDomainMapper
 
     @Binds
+    @Reusable
     fun bindAccountRepository(impl: AccountRepositoryImpl): AccountRepository
 
     @Binds

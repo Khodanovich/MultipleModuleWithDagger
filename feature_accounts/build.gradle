@@ -2,6 +2,7 @@
 dependencies {
 
     implementation project(':core')
+    implementation project(':core_data_base')
     implementation project(':core_utils')
 
 }

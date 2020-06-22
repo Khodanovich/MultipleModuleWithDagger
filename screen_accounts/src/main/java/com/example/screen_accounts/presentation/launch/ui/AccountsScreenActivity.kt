@@ -34,5 +34,7 @@ class AccountsScreenActivity : BaseActivity<AccountViewModel>() {
         toDetailsButton.setOnClickListener { viewModel.onToDetailsButtonClicked() }
 
         toProfileButton.setOnClickListener { viewModel.onToProfileInfoClicked() }
+
+        println("create component time = ${ end-start }")
     }
 }
