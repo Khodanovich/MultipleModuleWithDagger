@@ -1,4 +1,4 @@
-package com.example.core_data_base.accpunts.entity
+package com.example.core_data_base.accounts.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

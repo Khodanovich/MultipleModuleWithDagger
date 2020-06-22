@@ -1,9 +1,9 @@
-package com.example.core_data_base.accpunts.dao
+package com.example.core_data_base.accounts.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.core_data_base.accpunts.entity.AccountEntity
+import com.example.core_data_base.accounts.entity.AccountEntity
 
 /**
  * @author a.khodanovich

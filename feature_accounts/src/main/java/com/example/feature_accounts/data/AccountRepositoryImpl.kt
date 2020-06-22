@@ -1,7 +1,7 @@
 package com.example.feature_accounts.data
 
-import com.example.core_data_base.accpunts.dao.AccountDao
-import com.example.core_data_base.accpunts.entity.AccountEntity
+import com.example.core_data_base.accounts.dao.AccountDao
+import com.example.core_data_base.accounts.entity.AccountEntity
 import com.example.core_data_base.profile.dao.ProfileInfoDao
 import com.example.core_data_base.profile.entity.ProfileInfoEntity
 import com.example.feature_accounts.data.data_source.AccountDataSource

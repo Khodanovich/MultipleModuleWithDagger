@@ -1,6 +1,6 @@
 package com.example.core_data_base.di
 
-import com.example.core_data_base.accpunts.dao.AccountDao
+import com.example.core_data_base.accounts.dao.AccountDao
 import com.example.core_data_base.di.module.DaoModule
 import com.example.core_data_base.di.module.DbCreatorModule
 import com.example.core_data_base.profile.dao.ProfileInfoDao
