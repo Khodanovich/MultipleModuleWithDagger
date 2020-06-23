@@ -1,6 +1,8 @@
 
 dependencies {
+    implementation project(':core')
     api "androidx.room:room-runtime:2.2.5"
-    kapt "androidx.room:room-compiler:2.2.5"
     api "androidx.room:room-rxjava2:2.2.5"
+
+    api "net.zetetic:android-database-sqlcipher:4.4.0"
 }

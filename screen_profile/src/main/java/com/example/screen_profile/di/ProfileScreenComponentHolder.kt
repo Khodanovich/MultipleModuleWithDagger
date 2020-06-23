@@ -1,5 +1,6 @@
 package com.example.screen_profile.di
 
+import com.example.core_utils.di.app.AppComponentHolder
 import com.example.core_utils.di.base.holder.ComponentHolder
 
 /**
@@ -7,6 +8,9 @@ import com.example.core_utils.di.base.holder.ComponentHolder
  */
 internal object ProfileScreenComponentHolder : ComponentHolder<ProfileScreenComponent>() {
 
-    override fun build(): ProfileScreenComponent = DaggerProfileScreenComponent.create()
+    override fun build(): ProfileScreenComponent = DaggerProfileScreenComponent
+        .builder()
+        .appComponent(AppComponentHolder.get())
+        .build()
 
 }

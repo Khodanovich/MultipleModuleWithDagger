@@ -2,6 +2,7 @@ package com.example.screen_profile.presentation.ui
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import com.example.core_ui.presentation.di.UIComponent
 import com.example.core_ui.presentation.extentions.injectViewModel
 import com.example.core_ui.presentation.ui.base.BaseActivity
@@ -23,4 +24,10 @@ class ProfileActivity : BaseActivity<ProfileViewModel>() {
     override val viewModel: ProfileViewModel by injectViewModel()
     override var diComponent: UIComponent = ProfileScreenComponentHolder.get()
     override val layoutId = R.layout.activity_profile
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        println("profile create component time = ${ end-start }")
+    }
 }

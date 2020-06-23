@@ -1,11 +1,8 @@
 package com.example.core_ui.presentation.extentions
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.core_ui.presentation.ui.base.BaseActivity
 import com.example.core_ui.presentation.ui.base.BaseViewModel
-import kotlin.reflect.typeOf
 
 /**
  * @author a.khodanovich

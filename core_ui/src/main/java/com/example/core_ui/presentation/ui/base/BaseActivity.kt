@@ -25,7 +25,13 @@ abstract class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity() {
 
     private val navigator = SupportAppNavigator(this, 0)
 
+    //Эксперементальное время
+    var start: Long = 0
+    var end: Long = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        start = System.currentTimeMillis()
 
         viewModelFactory = createViewModelFactory()
 
@@ -34,6 +40,8 @@ abstract class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity() {
         setContentView(layoutId)
 
         viewModel.onViewCreated()
+
+        end = System.currentTimeMillis()
     }
 
     private fun createViewModelFactory() = with(diComponent){

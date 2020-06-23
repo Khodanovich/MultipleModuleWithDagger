@@ -73,6 +73,7 @@ subprojects{
         }
 
         kapt "com.google.dagger:dagger-compiler:2.26"
+        kapt "androidx.room:room-compiler:2.2.5"
     }
 }
 
