@@ -7,6 +7,7 @@ import com.example.feature_accounts.domain.DepositAccountsCase
 import com.example.feature_accounts.domain.LoanAccountsCase
 import com.example.navigation.directions.GlobalDirections
 import com.example.screen_accounts.navigation.AccountDetailsScreen
+import com.example.screen_accounts.presentation.details.ui.AccountDetailsLoadModel
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
@@ -36,7 +37,13 @@ class AccountViewModel @Inject constructor(
     }
 
     fun onToDetailsButtonClicked() {
-        router.navigateTo(AccountDetailsScreen(1))
+        router.navigateTo(
+            AccountDetailsScreen(
+                loadModel = AccountDetailsLoadModel(
+                    id = 1
+                )
+            )
+        )
     }
 
     fun onToProfileInfoClicked() {

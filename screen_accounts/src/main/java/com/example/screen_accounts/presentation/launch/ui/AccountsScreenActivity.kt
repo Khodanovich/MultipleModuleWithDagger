@@ -1,7 +1,5 @@
 package com.example.screen_accounts.presentation.launch.ui
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import com.example.core_ui.presentation.di.UIComponent
 import com.example.core_ui.presentation.extentions.injectViewModel
@@ -15,14 +13,6 @@ import kotlinx.android.synthetic.main.activity_account.*
  * @author a.khodanovich
  */
 class AccountsScreenActivity : BaseActivity<AccountViewModel>() {
-
-    companion object {
-
-        fun newInstance(context: Context): Intent{
-            return Intent(context, AccountsScreenActivity::class.java)
-        }
-
-    }
 
     override val viewModel: AccountViewModel by injectViewModel()
     override var diComponent: UIComponent = AccountsScreenComponentHolder.get()

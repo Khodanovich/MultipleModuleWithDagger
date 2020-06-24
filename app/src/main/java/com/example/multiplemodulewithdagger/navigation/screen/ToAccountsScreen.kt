@@ -2,6 +2,7 @@ package com.example.multiplemodulewithdagger.navigation.screen
 
 import android.content.Context
 import android.content.Intent
+import com.example.core_ui.presentation.extentions.createActivityIntent
 import com.example.screen_accounts.presentation.launch.ui.AccountsScreenActivity
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
@@ -11,6 +12,6 @@ import ru.terrakok.cicerone.android.support.SupportAppScreen
 internal object ToAccountsScreen : SupportAppScreen() {
 
     override fun getActivityIntent(context: Context): Intent? {
-        return AccountsScreenActivity.newInstance(context)
+        return createActivityIntent<AccountsScreenActivity>(context)
     }
 }

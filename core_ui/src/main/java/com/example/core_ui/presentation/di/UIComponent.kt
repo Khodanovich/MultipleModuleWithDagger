@@ -1,5 +1,6 @@
 package com.example.core_ui.presentation.di
 
+import com.example.core_ui.presentation.ui.load_model_holder.LoadModelHolder
 import com.example.core_ui.presentation.ui.view_model_factory.BaseViewModelFactory
 import com.example.core_utils.di.base.component.DIComponent
 
@@ -9,5 +10,7 @@ import com.example.core_utils.di.base.component.DIComponent
 interface UIComponent : DIComponent {
 
     val viewModelFactory: BaseViewModelFactory
+
+    val loadModelHolder: LoadModelHolder
 
 }
