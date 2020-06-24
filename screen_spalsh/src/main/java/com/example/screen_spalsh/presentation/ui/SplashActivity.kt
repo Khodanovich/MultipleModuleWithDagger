@@ -15,5 +15,4 @@ class SplashActivity : BaseActivity<SplashViewModel>(){
     override val viewModel: SplashViewModel by injectViewModel()
     override var diComponent: UIComponent = SplashScreenComponentHolder.get()
     override val layoutId = R.layout.activity_splash
-
 }
