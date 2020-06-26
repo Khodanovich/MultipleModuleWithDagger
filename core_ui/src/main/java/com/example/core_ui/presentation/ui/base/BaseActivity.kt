@@ -10,8 +10,6 @@ import com.example.core_ui.presentation.ui.view_model_factory.BaseViewModelFacto
 import com.example.navigation.di.NavigationComponentHolder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.runBlocking
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import kotlin.coroutines.CoroutineContext
 
@@ -24,12 +22,7 @@ abstract class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity(), Co
 
     protected abstract var diComponent: UIComponent
 
-    val viewModelFactory: BaseViewModelFactory
-        get() = runBlocking {
-            async(Dispatchers.Default) {
-                createViewModelFactory()
-            }.await()
-        }
+    val viewModelFactory: BaseViewModelFactory by lazy { createViewModelFactory() }
 
     protected abstract val layoutId: Int
 
@@ -42,6 +35,8 @@ abstract class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity(), Co
         super.onCreate(savedInstanceState)
 
         setContentView(layoutId)
+
+        lifecycle.addObserver(viewModel)
     }
 
     private fun createViewModelFactory() = with(diComponent) {
@@ -56,8 +51,6 @@ abstract class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity(), Co
     override fun onResume() {
         super.onResume()
 
-        lifecycle.addObserver(viewModel)
-
         NavigationComponentHolder.get().navigatorHolder.setNavigator(navigator)
     }
 
@@ -65,6 +58,12 @@ abstract class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity(), Co
         super.onPause()
 
         NavigationComponentHolder.get().navigatorHolder.removeNavigator()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        lifecycle.removeObserver(viewModel)
     }
 
 }

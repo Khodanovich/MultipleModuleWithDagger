@@ -7,6 +7,9 @@ import android.os.Parcelable
 import androidx.lifecycle.ViewModelProviders
 import com.example.core_ui.presentation.ui.base.BaseActivity
 import com.example.core_ui.presentation.ui.base.BaseViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.runBlocking
 
 /**
  * @author a.khodanovich
@@ -40,5 +43,9 @@ inline fun <reified T : BaseViewModel> BaseActivity<T>.injectViewModel(
 
 ): Lazy<T> = lazy {
 
-    ViewModelProviders.of(scope(), viewModelFactory)[T::class.java]
+    runBlocking(Dispatchers.Default) {
+        async {
+            ViewModelProviders.of(scope(), viewModelFactory)[T::class.java]
+        }.await()
+    }
 }
