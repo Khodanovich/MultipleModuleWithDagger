@@ -12,10 +12,11 @@ internal class AccountDetailsViewModel @Inject constructor() : BaseViewModel(){
 
     private val loadModel: AccountDetailsLoadModel by injectedLoadModel()
 
-    override fun onViewCreated() {
-        super.onViewCreated()
+    override fun onCreate() {
+        super.onCreate()
 
         println(loadModel.id)
+
     }
 
 }

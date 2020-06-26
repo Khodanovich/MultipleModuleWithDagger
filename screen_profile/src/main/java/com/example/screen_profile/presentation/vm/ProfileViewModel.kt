@@ -13,9 +13,9 @@ class ProfileViewModel @Inject constructor(
 
 ) : BaseViewModel() {
 
-    override fun onViewCreated() {
+    override fun onCreate() {
+        super.onCreate()
 
         println(profileInfoCase.execute())
-
     }
 }

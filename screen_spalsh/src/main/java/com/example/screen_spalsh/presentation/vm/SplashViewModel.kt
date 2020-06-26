@@ -15,7 +15,7 @@ class SplashViewModel @Inject constructor(
 
 ) : BaseViewModel() {
 
-    override fun onViewCreated() {
+    override fun onCreate() {
         router.navigateTo(globalDirections.toAccounts())
     }
 
