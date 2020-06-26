@@ -20,8 +20,6 @@ abstract class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity(), Co
 
     protected abstract val viewModel: ViewModel
 
-    protected abstract var diComponent: UIComponent
-
     val viewModelFactory: BaseViewModelFactory by lazy { createViewModelFactory() }
 
     protected abstract val layoutId: Int
@@ -39,7 +37,7 @@ abstract class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity(), Co
         lifecycle.addObserver(viewModel)
     }
 
-    private fun createViewModelFactory() = with(diComponent) {
+    private fun createViewModelFactory() = with(createDiComponent()) {
 
         val bundle: Bundle? = intent?.getBundleExtra(LOAD_MODEL_BUNDLE_INTENT_ARG)
         val loadModel = bundle?.getParcelable<Parcelable>(LOAD_MODEL_ARG)
@@ -47,6 +45,8 @@ abstract class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity(), Co
 
         return@with viewModelFactory
     }
+
+    protected abstract fun createDiComponent(): UIComponent
 
     override fun onResume() {
         super.onResume()

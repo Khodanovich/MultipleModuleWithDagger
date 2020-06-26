@@ -13,6 +13,6 @@ import com.example.screen_spalsh.presentation.vm.SplashViewModel
 class SplashActivity : BaseActivity<SplashViewModel>(){
 
     override val viewModel: SplashViewModel by injectViewModel()
-    override var diComponent: UIComponent = SplashScreenComponentHolder.get()
     override val layoutId = R.layout.activity_splash
+    override fun createDiComponent(): UIComponent = SplashScreenComponentHolder.get()
 }

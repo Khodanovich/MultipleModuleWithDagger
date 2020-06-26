@@ -15,8 +15,8 @@ import kotlinx.android.synthetic.main.activity_account.*
 class AccountsScreenActivity : BaseActivity<AccountViewModel>() {
 
     override val viewModel: AccountViewModel by injectViewModel()
-    override var diComponent: UIComponent = AccountsScreenComponentHolder.get()
     override val layoutId = R.layout.activity_account
+    override fun createDiComponent(): UIComponent = AccountsScreenComponentHolder.get()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -13,6 +13,6 @@ import com.example.screen_profile.presentation.vm.ProfileViewModel
 class ProfileActivity : BaseActivity<ProfileViewModel>() {
 
     override val viewModel: ProfileViewModel by injectViewModel()
-    override var diComponent: UIComponent = ProfileScreenComponentHolder.get()
     override val layoutId = R.layout.activity_profile
+    override fun createDiComponent(): UIComponent = ProfileScreenComponentHolder.get()
 }

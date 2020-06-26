@@ -13,6 +13,6 @@ import com.example.screen_accounts.presentation.details.vm.AccountDetailsViewMod
 internal class AccountDetailsActivity : BaseActivity<AccountDetailsViewModel>() {
 
     override val viewModel: AccountDetailsViewModel by injectViewModel()
-    override var diComponent: UIComponent = AccountDetailsScreenComponentHolder.get()
     override val layoutId = R.layout.activity_account_details
+    override fun createDiComponent(): UIComponent = AccountDetailsScreenComponentHolder.get()
 }
