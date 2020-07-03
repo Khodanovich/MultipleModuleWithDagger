@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.android.tools.build:gradle:4.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -46,6 +46,10 @@ subprojects{
         compileSdkVersion versions.compileSdk
         buildToolsVersion versions.buildTools
 
+        buildFeatures {
+            dataBinding(true)
+        }
+
         defaultConfig {
             minSdkVersion versions.minSdk
             targetSdkVersion versions.targetSdk
@@ -72,7 +76,7 @@ subprojects{
             implementation project(':core')
         }
 
-        kapt "com.google.dagger:dagger-compiler:2.26"
+        kapt "com.google.dagger:dagger-compiler:2.28"
     }
 }
 

@@ -13,6 +13,8 @@ class ProfileViewModel @Inject constructor(
 
 ) : BaseViewModel() {
 
+    val text = "PROFILE"
+
     override fun onCreate() {
         super.onCreate()
 

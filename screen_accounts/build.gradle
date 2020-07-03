@@ -3,6 +3,7 @@ dependencies {
 
     implementation project(':core')
     implementation project(':core_ui')
+    implementation project(':core_ui_kit')
     implementation project(':core_utils')
 
     implementation project(':feature_accounts')

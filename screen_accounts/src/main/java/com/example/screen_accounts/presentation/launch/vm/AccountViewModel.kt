@@ -8,6 +8,9 @@ import com.example.feature_accounts.domain.LoanAccountsCase
 import com.example.navigation.directions.GlobalDirections
 import com.example.screen_accounts.navigation.AccountDetailsScreen
 import com.example.screen_accounts.presentation.details.ui.AccountDetailsLoadModel
+import com.example.screen_accounts.presentation.launch.AccountUiModel
+import com.example.screen_accounts.presentation.launch.adapter.AccountsAdapter
+import com.example.screen_accounts.presentation.launch.mapper.AccountToUiModelMapper
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
@@ -21,27 +24,35 @@ class AccountViewModel @Inject constructor(
     private val depositAccountsCase: DepositAccountsCase,
     private val loanAccountsCase: LoanAccountsCase,
     private val router: Router,
-    private val globalDirections: GlobalDirections
+    private val globalDirections: GlobalDirections,
+    private val accountToUIModelMapper: AccountToUiModelMapper
 
 ) : BaseViewModel() {
 
+    val text = "ACCOUNT"
+
+    val accountsAdapter = AccountsAdapter()
+
     override fun onCreate() {
         super.onCreate()
-
-        println(allAccountsCase.execute())
 
         println(byIdAccountCase.execute(1))
 
         println(depositAccountsCase.execute())
 
         println(loanAccountsCase.execute())
+
+        val accounts = allAccountsCase.execute()
+            .map { accountToUIModelMapper.invoke(it) { navigateToAccountDetailsScreen(it) } }
+
+        accountsAdapter.setData(accounts)
     }
 
-    fun onToDetailsButtonClicked() {
+    private fun navigateToAccountDetailsScreen(accountUiModel: AccountUiModel) {
         router.navigateTo(
             AccountDetailsScreen(
                 loadModel = AccountDetailsLoadModel(
-                    id = 1
+                    id = accountUiModel.id
                 )
             )
         )

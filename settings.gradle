@@ -1,4 +1,4 @@
-
+include ':core_ui_kit'
 include ':app'
 include ':core'
 include ':core_data_base'
@@ -11,6 +11,6 @@ include ':navigation'
 
 include ':screen_accounts'
 include ':screen_profile'
-include ':screen_spalsh'
+include ':screen_splash'
 
 rootProject.name = "MultipleModuleWithDagger"

@@ -9,5 +9,5 @@ dependencies {
 
     implementation project(':screen_accounts')
     implementation project(':screen_profile')
-    implementation project(':screen_spalsh')
+    implementation project(':screen_splash')
 }

@@ -3,6 +3,8 @@ package com.example.core_ui.presentation.ui.base
 import android.os.Bundle
 import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import com.example.core_ui.presentation.di.UIComponent
 import com.example.core_ui.presentation.extentions.LOAD_MODEL_ARG
 import com.example.core_ui.presentation.extentions.LOAD_MODEL_BUNDLE_INTENT_ARG
@@ -24,6 +26,10 @@ abstract class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity(), Co
 
     protected abstract val layoutId: Int
 
+    protected abstract val dataBindingVariable: Int?
+
+    private var viewDataBinding: ViewDataBinding? = null
+
     private val navigator = SupportAppNavigator(this, 0)
 
     final override val coroutineContext: CoroutineContext = Dispatchers.Main
@@ -34,7 +40,19 @@ abstract class BaseActivity<ViewModel : BaseViewModel> : AppCompatActivity(), Co
 
         setContentView(layoutId)
 
+        viewDataBinding = DataBindingUtil.setContentView(this, layoutId)
+
+        initDataBinding()
+
         lifecycle.addObserver(viewModel)
+    }
+
+    private fun initDataBinding() {
+        dataBindingVariable?.let {
+            viewDataBinding?.setVariable(it, viewModel)
+        }
+
+        viewDataBinding?.lifecycleOwner = this
     }
 
     private fun createViewModelFactory() = with(createDiComponent()) {
