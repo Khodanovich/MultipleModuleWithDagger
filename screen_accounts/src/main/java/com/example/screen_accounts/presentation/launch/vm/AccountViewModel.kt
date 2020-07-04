@@ -6,7 +6,7 @@ import com.example.feature_accounts.domain.ByIdAccountCase
 import com.example.feature_accounts.domain.DepositAccountsCase
 import com.example.feature_accounts.domain.LoanAccountsCase
 import com.example.navigation.directions.GlobalDirections
-import com.example.screen_accounts.navigation.AccountDetailsScreen
+import com.example.screen_accounts.navigation.nested_navigation.AccountsDirections
 import com.example.screen_accounts.presentation.details.ui.AccountDetailsLoadModel
 import com.example.screen_accounts.presentation.launch.AccountUiModel
 import com.example.screen_accounts.presentation.launch.adapter.AccountsAdapter
@@ -25,6 +25,7 @@ class AccountViewModel @Inject constructor(
     private val loanAccountsCase: LoanAccountsCase,
     private val router: Router,
     private val globalDirections: GlobalDirections,
+    private val accountsDirections: AccountsDirections,
     private val accountToUIModelMapper: AccountToUiModelMapper
 
 ) : BaseViewModel() {
@@ -50,7 +51,7 @@ class AccountViewModel @Inject constructor(
 
     private fun navigateToAccountDetailsScreen(accountUiModel: AccountUiModel) {
         router.navigateTo(
-            AccountDetailsScreen(
+            accountsDirections.toAccountDetails(
                 loadModel = AccountDetailsLoadModel(
                     id = accountUiModel.id
                 )
