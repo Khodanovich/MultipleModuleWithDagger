@@ -8,7 +8,6 @@ import kotlin.reflect.KClass
  * @author a.khodanovich
  */
 
-@MustBeDocumented
 @Target(
     AnnotationTarget.FUNCTION,
     AnnotationTarget.PROPERTY_GETTER,
